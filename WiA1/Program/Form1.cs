@@ -10,16 +10,6 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Xml;
 
-using Emgu.CV;
-using Emgu.Util;
-using Emgu.CV.Structure;
-using Emgu.CV.CvEnum;
-using Emgu.CV.UI;
-
-using Accord.Imaging.Filters;
-using Accord.Vision.Detection;
-using Accord.Vision.Detection.Cascades;
-
 using System.Diagnostics;
 
 namespace Program

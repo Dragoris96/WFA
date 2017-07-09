@@ -51,6 +51,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SearchModebox = new System.Windows.Forms.ComboBox();
             this.ScalingModebox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Defaultpicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccordPicture)).BeginInit();
@@ -153,9 +156,9 @@
             // RightFlipButton
             // 
             this.RightFlipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RightFlipButton.Location = new System.Drawing.Point(80, 482);
+            this.RightFlipButton.Location = new System.Drawing.Point(60, 482);
             this.RightFlipButton.Name = "RightFlipButton";
-            this.RightFlipButton.Size = new System.Drawing.Size(59, 59);
+            this.RightFlipButton.Size = new System.Drawing.Size(44, 59);
             this.RightFlipButton.TabIndex = 19;
             this.RightFlipButton.Text = "↷";
             this.RightFlipButton.UseVisualStyleBackColor = true;
@@ -166,7 +169,7 @@
             this.LeftFlipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LeftFlipButton.Location = new System.Drawing.Point(12, 482);
             this.LeftFlipButton.Name = "LeftFlipButton";
-            this.LeftFlipButton.Size = new System.Drawing.Size(59, 59);
+            this.LeftFlipButton.Size = new System.Drawing.Size(42, 59);
             this.LeftFlipButton.TabIndex = 18;
             this.LeftFlipButton.Text = "↶";
             this.LeftFlipButton.UseVisualStyleBackColor = true;
@@ -263,11 +266,44 @@
             this.ScalingModebox.Size = new System.Drawing.Size(690, 21);
             this.ScalingModebox.TabIndex = 27;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(136, 482);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(226, 24);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Исходное изображение";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(433, 482);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(272, 24);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "С использованием EMGU CV";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(749, 482);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(290, 24);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "С использованием Accord.NET";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 553);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.ScalingModebox);
             this.Controls.Add(this.SearchModebox);
             this.Controls.Add(this.label2);
@@ -322,6 +358,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox SearchModebox;
         private System.Windows.Forms.ComboBox ScalingModebox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

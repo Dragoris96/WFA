@@ -21,7 +21,6 @@ namespace Program
     class EmguCVFaceDetector : Detektor
     {
         Image<Bgr, Byte> image1;
-        private Bitmap image;
 
         public EmguCVFaceDetector()
         {

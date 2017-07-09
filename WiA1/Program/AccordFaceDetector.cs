@@ -47,14 +47,9 @@ namespace Program
             detector.ScalingFactor = 1.5f;
             detector.UseParallelProcessing = true;
 
-            Stopwatch sw = Stopwatch.StartNew();
-
 
             // Process frame to detect objects
             Rectangle[] objects = detector.ProcessFrame(image);
-
-
-            sw.Stop();
 
 
             if (objects.Length > 0)

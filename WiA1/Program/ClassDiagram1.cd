@@ -1,93 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Program.AccordFaceDetector" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+  <Class Name="Program.AccordFaceDetector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="2.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAkAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAIAAAAAAAAAgAEAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>AccordFaceDetector.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Program.EmguCVFaceDetector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAJAAAAAAAAAAAEAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EmguCVFaceDetector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Program.BrightnessContrast" Collapsed="true">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="4.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAIA=</HashCode>
-      <FileName>BrightnessContrast.cs</FileName>
+      <FileName>Filters\BrightnessContrast.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Program.ColorBalance" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="5.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAIAAAAAAAA=</HashCode>
-      <FileName>ColorBalance.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Program.Detektor" Collapsed="true">
-    <Position X="1.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Detektor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Program.EmguCVFaceDetector" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EmguCVFaceDetector.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Program.Form1" Collapsed="true">
-    <Position X="5.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>FQCAAABAQKIgBdEGBEiAQAAGEgAYIKAEAMAAAwBIAhk=</HashCode>
-      <FileName>Form1.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Program.Form2" Collapsed="true">
-    <Position X="7" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAECAAABAEAACAAAACAAAZAAAAAAAAEgBAAAA=</HashCode>
-      <FileName>Form2.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Program.Form3" Collapsed="true">
-    <Position X="8.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAECAAABAEAACAAAACAAA5AAAAAAAAAgBAgAA=</HashCode>
-      <FileName>Form3.cs</FileName>
+      <FileName>Filters\ColorBalance.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Program.Filter" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="5.5" Y="3.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAACAAAAAAQAAAAQAAAAAAAIAAIAAQAAAAAA=</HashCode>
-      <FileName>MatricaSvertki.cs</FileName>
+      <FileName>Filters\Filter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Program.Program" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+  <Class Name="Program.BrightForm" Collapsed="true">
+    <Position X="5.5" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AAAAAAAAECAAABAEAACAAAACAAAZAAAAAAAAEgBAAAA=</HashCode>
+      <FileName>Forms\BrightForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Program.Properties.Resources" Collapsed="true">
-    <Position X="7" Y="2.5" Width="1.5" />
+  <Class Name="Program.ColorBalanceSettingsForm" Collapsed="true">
+    <Position X="5.5" Y="2.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAECAAABAEAACAAAACAAA5AAAAAAAAAgBAgAA=</HashCode>
+      <FileName>Forms\ColorBalanceForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Program.Properties.Settings" Collapsed="true">
-    <Position X="8.75" Y="2.5" Width="1.5" />
+  <Class Name="Program.DetektorForm" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>FQCAAABAQKIgBdEGBEiAQAAGEgAYIKAEAMAAAwBIAhk=</HashCode>
+      <FileName>Forms\DetektorForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program.Fabrics.AccordFaceDetectorFactory">
+    <Position X="0.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fabrics\AccordFaceDetectorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program.Fabrics.EmguCVFaceDetectorFactory">
+    <Position X="0.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fabrics\EmguCVFaceDetectorFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Program.RGB" Collapsed="true">
-    <Position X="5.25" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAQA=</HashCode>
-      <FileName>MatricaSvertki.cs</FileName>
+      <FileName>Filters\Filter.cs</FileName>
     </TypeIdentifier>
   </Struct>
+  <Interface Name="Program.IDetektor">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Detektor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -1,61 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Reflection;
-using System.Xml;
 
 using Emgu.CV;
-using Emgu.Util;
 using Emgu.CV.Structure;
-using Emgu.CV.CvEnum;
-using Emgu.CV.UI;
 
 namespace Program
 {
-    class EmguCVFaceDetector : Detektor
+    public class EmguCVFaceDetector:IDetektor
     {
-        Image<Bgr, Byte> image1;
+        Image<Gray, Byte> grayimage;
+        Image<Bgr, Byte> image;
+        Emgu.CV.HaarCascade faceCascade;
 
-        public EmguCVFaceDetector()
+        public EmguCVFaceDetector(Image<Gray, Byte> grayimage1,Image<Bgr, Byte> image1,Emgu.CV.HaarCascade faceCascade1)
         {
+            grayimage = grayimage1;
+            image = image1;
+            faceCascade=faceCascade1;
         }
-        public EmguCVFaceDetector(Bitmap image)
+        public Bitmap Detect()
         {
-            image1 = new Image<Bgr, Byte>(image);
-        }
-
-        public override Bitmap SRt(string b)
-        {
-            Image<Gray, Byte> grayImage = image1.Convert<Gray, Byte>();
-
-            //for face
-            if (b == "\0")
-            {
-                Emgu.CV.HaarCascade faceCascade = new Emgu.CV.HaarCascade("haarcascade_frontalface_alt.xml");
-                var Face = grayImage.DetectHaarCascade(faceCascade)[0];
+                var Face = grayimage.DetectHaarCascade(faceCascade)[0];
                 foreach (var face in Face)
                 {
                     //Если таковы найдены, то рисуем вокруг них круг, с заданным цветом и толщиной линии.
-                    image1.Draw(face.rect, new Bgr(0, 0, 0), 5);
+                    image.Draw(face.rect, new Bgr(0, 255, 0), 5);
                 }
-            }
-            else
-            {
-                Emgu.CV.HaarCascade faceCascade = new Emgu.CV.HaarCascade(b);
-                var Face = grayImage.DetectHaarCascade(faceCascade)[0];
-                foreach (var face in Face)
-                {
-                    //Если таковы найдены, то рисуем вокруг них круг, с заданным цветом и толщиной линии.
-                    image1.Draw(face.rect, new Bgr(0, 0, 0), 5);
-                }
-            }
-            return image1.ToBitmap();
+             return image.ToBitmap();
         }
 
     }

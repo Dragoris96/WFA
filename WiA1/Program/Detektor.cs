@@ -11,8 +11,8 @@ using System.Reflection;
 
 namespace Program
 {
-    abstract class Detektor
+    interface IDetektor
     {
-        public abstract Bitmap SRt(string b);
+        Bitmap Detect();
     }
 }

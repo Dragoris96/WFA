@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Program
 {
-    public partial class Form3 : Form
+    public partial class ColorBalanceSettingsForm : Form
     {
-        Form1 OwnerForm;
-        public Form3(Form1 ownerForm)
+        DetektorForm OwnerForm;
+        public ColorBalanceSettingsForm(DetektorForm ownerForm)
         {
             this.OwnerForm = ownerForm;
             InitializeComponent();
@@ -26,14 +26,14 @@ namespace Program
         //цветовой баланс R
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            if (Form1.full_name_of_image != "\0")
+            if (DetektorForm.full_name_of_image != "\0")
             {
                 UInt32 p;
-                for (int i = 0; i < Form1.image.Height; i++)
-                    for (int j = 0; j < Form1.image.Width; j++)
+                for (int i = 0; i < DetektorForm.image.Height; i++)
+                    for (int j = 0; j < DetektorForm.image.Width; j++)
                     {
-                        p = ColorBalance.ColorBalance_R(Form1.pixel[i, j], trackBar1.Value, trackBar1.Maximum);
-                        Form1.FromOnePixelToBitmap(i, j, p);
+                        p = ColorBalance.ColorBalance_R(DetektorForm.pixel[i, j], trackBar1.Value, trackBar1.Maximum);
+                        DetektorForm.FromOnePixelToBitmap(i, j, p);
                     }
 
                 FromBitmapToScreen();
@@ -43,14 +43,14 @@ namespace Program
         //цветовой баланс G
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            if (Form1.full_name_of_image != "\0")
+            if (DetektorForm.full_name_of_image != "\0")
             {
                 UInt32 p;
-                for (int i = 0; i < Form1.image.Height; i++)
-                    for (int j = 0; j < Form1.image.Width; j++)
+                for (int i = 0; i < DetektorForm.image.Height; i++)
+                    for (int j = 0; j < DetektorForm.image.Width; j++)
                     {
-                        p = ColorBalance.ColorBalance_G(Form1.pixel[i, j], trackBar2.Value, trackBar2.Maximum);
-                        Form1.FromOnePixelToBitmap(i, j, p);
+                        p = ColorBalance.ColorBalance_G(DetektorForm.pixel[i, j], trackBar2.Value, trackBar2.Maximum);
+                        DetektorForm.FromOnePixelToBitmap(i, j, p);
                     }
 
                 FromBitmapToScreen();
@@ -60,14 +60,14 @@ namespace Program
         //цветовой баланс B
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            if (Form1.full_name_of_image != "\0")
+            if (DetektorForm.full_name_of_image != "\0")
             {
                 UInt32 p;
-                for (int i = 0; i < Form1.image.Height; i++)
-                    for (int j = 0; j < Form1.image.Width; j++)
+                for (int i = 0; i < DetektorForm.image.Height; i++)
+                    for (int j = 0; j < DetektorForm.image.Width; j++)
                     {
-                        p = ColorBalance.ColorBalance_B(Form1.pixel[i, j], trackBar3.Value, trackBar3.Maximum);
-                        Form1.FromOnePixelToBitmap(i, j, p);
+                        p = ColorBalance.ColorBalance_B(DetektorForm.pixel[i, j], trackBar3.Value, trackBar3.Maximum);
+                        DetektorForm.FromOnePixelToBitmap(i, j, p);
                     }
 
                 FromBitmapToScreen();
@@ -77,11 +77,11 @@ namespace Program
         //сохранение изменений яркости или контрастности
         private void button_Click(object sender, EventArgs e)
         {
-            if (Form1.full_name_of_image != "\0")
+            if (DetektorForm.full_name_of_image != "\0")
             {
-                for (int i = 0; i < Form1.image.Height; i++)
-                    for (int j = 0; j < Form1.image.Width; j++)
-                        Form1.pixel[i, j] = (UInt32)(Form1.image.GetPixel(j, i).ToArgb());
+                for (int i = 0; i < DetektorForm.image.Height; i++)
+                    for (int j = 0; j < DetektorForm.image.Width; j++)
+                        DetektorForm.pixel[i, j] = (UInt32)(DetektorForm.image.GetPixel(j, i).ToArgb());
                 trackBar1.Value = 0;
                 trackBar2.Value = 0;
                 trackBar3.Value = 0;
@@ -98,9 +98,9 @@ namespace Program
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Form1.full_name_of_image != "\0")
+            if (DetektorForm.full_name_of_image != "\0")
             {
-                Form1.FromPixelToBitmap();
+                DetektorForm.FromPixelToBitmap();
                 FromBitmapToScreen();
             }
         }

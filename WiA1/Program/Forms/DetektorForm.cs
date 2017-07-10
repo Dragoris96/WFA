@@ -1,26 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
-using System.Xml;
-
-using System.Diagnostics;
 
 namespace Program
 {
-    public partial class Form1 : Form
+    public partial class DetektorForm : Form
     {
-        Bitmap image1;
-        Bitmap image2;
         public static Bitmap image;
 
-        public Form1()
+        public DetektorForm()
         {
             InitializeComponent();
             LeftFlipButton.Visible = false;
@@ -35,14 +23,14 @@ namespace Program
         //яркость контрастность
         private void oneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 BrightnessForm = new Form2(this);
+            BrightForm BrightnessForm = new BrightForm(this);
             BrightnessForm.ShowDialog(); //just 'Show' for the control Form1
         }
 
         //цветовой Баланс
         private void toToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 ColorBalanceForm = new Form3(this);
+            ColorBalanceSettingsForm ColorBalanceForm = new ColorBalanceSettingsForm(this);
             ColorBalanceForm.ShowDialog();
         }
 
@@ -156,9 +144,9 @@ namespace Program
         }
 
         private void Workbutton_Click(object sender, EventArgs e)
-        {           
-            EmguCVFaceDetector CV1 = new EmguCVFaceDetector(image);
-            image = CV1.SRt(full_name_of_xml);
+        {
+            IDetektor CV1 = Fabrics.EmguCVFaceDetectorFactory.Get(image, full_name_of_xml);
+            image = CV1.Detect();
             EmguPicture.Image = image;
             EmguPicture.SizeMode = PictureBoxSizeMode.Zoom;
             EmguPicture.Invalidate();
@@ -180,11 +168,8 @@ namespace Program
             else
                 if (ScalingModebox.SelectedItem.ToString() == "Начнется с небольших окон поиска и постепенно масштабируется в более крупные.") b = 1; else b = 0;
 
-
-            
-
-            AccordFaceDetector CV2 = new AccordFaceDetector(image,a,b);
-            AccordPicture.Image= CV2.SRt("");
+            IDetektor CV2 = Fabrics.AccordFaceDetectorFactory.Get(image,a,b);
+            AccordPicture.Image= CV2.Detect();
             AccordPicture.SizeMode = PictureBoxSizeMode.Zoom;
             AccordPicture.Invalidate();
         }

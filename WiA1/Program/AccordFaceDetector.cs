@@ -15,46 +15,81 @@ using System.Diagnostics;
 
 namespace Program
 {
-    class AccordFaceDetector : Detektor
+    public class AccordFaceDetector : IDetektor
     {
         Bitmap image;
-        int SearchMode;
-        int ScalingMode;
 
-        public AccordFaceDetector()
+        private HaarObjectDetector _detector;
+        
+        public int ScallingMode1
         {
+            get
+            {
+                switch (_detector.ScalingMode)
+                {
+                    case ObjectDetectorScalingMode.GreaterToSmaller: return 0; break;
+                    case ObjectDetectorScalingMode.SmallerToGreater: return 1; break;
+                    default: return 0;
+                }
 
+            }
+
+            set
+            {
+                switch (value)
+                {
+                    case 0: _detector.ScalingMode = ObjectDetectorScalingMode.GreaterToSmaller; break;
+                    case 1: _detector.ScalingMode = ObjectDetectorScalingMode.SmallerToGreater; break;
+                    default: _detector.ScalingMode = ObjectDetectorScalingMode.GreaterToSmaller; break;
+                }
+               
+            }
         }
-        public AccordFaceDetector(Bitmap image1, int SearchMode1, int ScalingMode1)
+
+        public int SearchMode1
         {
-            image = image1;
-            SearchMode = SearchMode1;
-            ScalingMode = ScalingMode1;
+            get
+            {
+                switch (_detector.SearchMode)
+                {
+                    case ObjectDetectorSearchMode.Default: return 0; 
+                    case ObjectDetectorSearchMode.Single: return 1; 
+                    case ObjectDetectorSearchMode.NoOverlap: return 2;
+                    default: return 0;
+                }
+
+            }
+
+            set
+            {
+                switch (value)
+                {
+                    case 0: _detector.SearchMode = ObjectDetectorSearchMode.Default; break;
+                    case 1: _detector.SearchMode = ObjectDetectorSearchMode.Single; break;
+                    case 2: _detector.SearchMode = ObjectDetectorSearchMode.NoOverlap; break;
+                    default: _detector.SearchMode = ObjectDetectorSearchMode.Default; break;
+                }
+
+            }
         }
-        public override Bitmap SRt(string ol)
+
+        public AccordFaceDetector(Bitmap image1)
         {
-            HaarObjectDetector detector;
             Accord.Vision.Detection.HaarCascade cascade = new FaceHaarCascade();
-            detector = new HaarObjectDetector(cascade, 30);
+            _detector = new HaarObjectDetector(cascade, 30);
+            image = image1;
+        }
+        public Bitmap Detect()
+        {
+            _detector.ScalingFactor = 1.5f;
+            _detector.UseParallelProcessing = true;
 
-            if (SearchMode == 0) detector.SearchMode = ObjectDetectorSearchMode.Default;
-            if (SearchMode == 1) detector.SearchMode = ObjectDetectorSearchMode.Single;
-            if (SearchMode == 2) detector.SearchMode = ObjectDetectorSearchMode.NoOverlap;
-
-            if (ScalingMode == 0) detector.ScalingMode = ObjectDetectorScalingMode.GreaterToSmaller;
-            if (ScalingMode == 1) detector.ScalingMode = ObjectDetectorScalingMode.SmallerToGreater;
-
-            detector.ScalingFactor = 1.5f;
-            detector.UseParallelProcessing = true;
-
-
-            // Process frame to detect objects
-            Rectangle[] objects = detector.ProcessFrame(image);
+           Rectangle[] objects = _detector.ProcessFrame(image);
 
 
             if (objects.Length > 0)
             {
-                RectanglesMarker marker = new RectanglesMarker(objects, Color.Black);
+                RectanglesMarker marker = new RectanglesMarker(objects, Color.Yellow);
                 image = marker.Apply(image);
             }
 

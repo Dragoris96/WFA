@@ -1,6 +1,6 @@
 ﻿namespace Program
 {
-    partial class Form2
+    partial class BrightForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Program
 {
-    partial class Form3
+    partial class ColorBalanceSettingsForm
     {
         /// <summary>
         /// Required designer variable.
